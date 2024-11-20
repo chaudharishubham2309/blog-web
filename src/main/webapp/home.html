@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog Website</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="blog.css">
+  </head>
+    <style>
+      aside{background-ccolr:cyan;
+        text-align:center;}
+      article{background-ccolr:cyan;
+            float: left;}
+      footer{background-ccolr:cyan;
+        text-align:center;}
+      </style>
+	  <style>
+
+</style>
+  <body>
+  <header id='myheader'>
+    <img src="logo1.png" height='60'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <nav>
+  <a href="">Home</a>
+  <a href="#About">About</a>
+  <a href="contact.html">Contact</a>
+  
+  </nav>
+  <button class="btn" onclick="showLoginPopup()">Login</button>
+  <button class="btn" onclick="showRegisterPopup()">Register</button>
+  
+  </header>
+  <div id="loginPopup" class="popup">
+  <h2>Login Form</h2>
+  <form action="LoginServlet" method="post">
+    <input type="text" placeholder="Username" name="username" required><br>
+    <input type="password" placeholder="Password" name="password" required><br>
+    <button type="submit">Login</button>
+    <button onclick="closeLoginPopup()">Close</button>
+  </form>
+  <p>If not have account then Register</p>
+  
+
+<script>
+
+// Function to show the register popup
+function showRegisterPopup() {
+  var registerPopup = document.getElementById("registerPopup");
+  registerPopup.style.display = "block";
+}
+
+// Function to close the register popup
+function closeRegisterPopup() {
+  var registerPopup = document.getElementById("registerPopup");
+  registerPopup.style.display = "none";
+}
+</script>
+</div>
+  <!-- Register Popup -->
+<div id="registerPopup" class="popup">
+  <h2>Register Form</h2>
+  <form class="form" action="register" method="get">
+    <input type="text" placeholder="Username" name="username" required><br>
+    <input type="password" placeholder="Password" name="password" required><br>
+	<input type="password" placeholder="Re Enter Password" name="password" required><br>
+    <button type="submit">Register</button>
+    <button onclick="closeRegisterPopup()">Close</button>
+  </form>
+</div>
+<script>
+// Function to show the login popup
+function showLoginPopup() {
+  var loginPopup = document.getElementById("loginPopup");
+  loginPopup.style.display = "block";
+}
+
+// Function to close the login popup
+function closeLoginPopup() {
+  var loginPopup = document.getElementById("loginPopup");
+  loginPopup.style.display = "none";
+}
+</script>
+  <!--Article section-->
+  <article>
+  <img src="main.jpg" ></img>
+  <br><br>
+  <h2>Unlocking the Power of Words</h2>
+  <h2>Igniting Minds, One Post at a Time</h2>
+  <h2>Create a unique blog more easily</h2>
+  </article>
+  <aside>
+  <!-- aside section -->
+  <img src="blog.png"></img>
+  <h1>Welcome</h1><br>
+  <div class="main1">
+        
+          <ul class="option">
+          <li><span>Communicate Create</span></li>
+          <li><span>Words Unleashed Here</span></li>
+          <li><span>Ideas Unfold Here</span></li>
+		  <li><span>Wander Words</span></li>
+          </ul>
+          </div>
+		  <div class="wo">
+         <b><h3> Read Write Inspire!</h3></b>
+		 </div>
+  </aside>
+  <br>
+  <div class="container">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="hand.jpg" alt="" height="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button class="button"><a href="create.html">Create Your Blog</a></button>
+  </div>
+   <br><br>
+     
+<!--About-->
+ <section class="About" id="About">
+      
+        <div>
+          <div class="about1">
+            <aside>
+            <span>About</span><br>
+            <img src="ab.png" alt=""  height="400" width="800"></img>
+            <h1>We are MindfulBlogger</h1> 
+			<h2>Welcome to our blog!</h2> 
+			<h6>We are dedicated to providing you with the latest and most insightful information on various topics. Our team of experts works tirelessly to bring you engaging and informative content that you will find valuable and interesting. Feel free to explore our blog and let us know your thoughts and feedback. 
+			Thank you for being a part of our community!</h6>
+            </div>
+            
+          </section>
+		 
+		
+      
+  </body>
+</html>

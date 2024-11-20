@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notificationApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification Page</title>
+    <!-- Include AngularJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+    <div ng-controller="NotificationController">
+        <input type="text" ng-model="notificationText" placeholder="Enter notification message">
+        <button ng-click="sendNotification()">Send Notification</button>
+    </div>
+
+    <script>
+        angular.module('notificationApp', [])
+        .controller('NotificationController', function($scope, $http) {
+            $scope.sendNotification = function() {
+                if ($scope.notificationText) {
+                    $http.post('notify.php', { message: $scope.notificationText })
+                    .then(function(response) {
+                        console.log('Notification sent:', response.data);
+                        // Optionally, you can handle success or show confirmation to the user
+                    }, function(error) {
+                        console.error('Error sending notification:', error);
+                    });
+                } else {
+                    console.log('Please enter a notification message');
+                    // Optionally, you can inform the user to enter a message
+                }
+            };
+        });
+    </script>
+
+</body>
+</html>

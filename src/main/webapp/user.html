@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html ng-app="blogApp">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog Website</title>
+    <link rel="stylesheet" href="style.css">
+	
+  </head>
+    <style>
+      aside{background-ccolr:cyan;
+        text-align:center;}
+      article{background-ccolr:cyan;
+            float: left;}
+      footer{background-ccolr:cyan;
+        text-align:center;}
+      </style>
+	 
+<style>
+  label {
+    font-size: 18px;
+  }
+  .post h3 {
+    font-size: 18px;
+	}
+	.post {
+    font-size: 18px;
+	}
+</style>
+<link rel="stylesheet" href="style.css">
+	<link rel="blog1.css">
+	<style>
+
+.blog-posts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 500px;
+}
+
+.post h2 {
+  margin-top: 0;
+}
+
+.post img {
+  max-width: 100%;
+  height: auto;
+}
+.di{
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+}
+.container {
+            
+        }
+
+        input[type=text],
+        input[type=email],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+	</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <body>
+  <header id='myheader'>
+    <img src="logo1.png" height='60'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <nav>
+  <a href="#Home">Home</a>
+  <a href="#Blog">Blogs</a>
+  <a href="contact.html">Contact</a>
+  
+  </nav>
+  
+  </header>
+  
+  <!--Article section-->
+  <article>
+  <img src="main.jpg" ></img>
+  <br><br>
+  <h2>Unlocking the Power of Words</h2>
+  <h2>Igniting Minds, One Post at a Time</h2>
+  <h2>Create a unique blog more easily</h2>
+  </article>
+  <aside>
+  <!-- aside section -->
+  <img src="blog.png"></img>
+  <h1>Welcome</h1><br>
+  <div class="main1">
+        
+          <ul class="option">
+          <li><span>Communicate Create</span></li>
+          <li><span>Words Unleashed Here</span></li>
+          <li><span>Ideas Unfold Here</span></li>
+		  <li><span>Wander Words</span></li>
+          </ul>
+          </div>
+		  <div class="wo">
+         <b><h3> Read Write Inspire!</h3></b>
+		 </div>
+  </aside>
+  <br>
+  <div class="container">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="hand.jpg" alt="" height="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button class="button"><a href="#Blog">Create Your Blog</a></button>
+  </div>
+   <br><br>
+     
+<section class="Blog" id="Blog">
+      
+        <div>
+          <div class="blog1">
+            <aside>
+<br>
+        
+  <script>
+angular.module('blogApp', [])
+  .controller('BlogController', function() {
+    this.posts = [];
+    this.newPost = {};
+    this.newComment = '';
+
+    this.addPost = function() {
+      // Simulating image upload from input file
+      const file = document.querySelector('input[type=file]').files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.posts.push({
+          title: this.newPost.title,
+          author: this.newPost.author,
+          image: reader.result,
+          content: this.newPost.content,
+          likes: 0,
+          comments: []
+        });
+        this.newPost = {};
+      };
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    };
+
+    this.likePost = function(post) {
+      post.likes++;
+    };
+
+    this.addComment = function(post) {
+      if (this.newComment.trim() !== '') {
+        post.comments.push(this.newComment);
+        this.newComment = '';
+      }
+    };
+  });
+
+
+</script>  
+
+<div ng-controller="BlogController as blogCtrl">
+<div style="text-align: center;">
+ <h2>My Blog</h2>
+ </div>
+<div class="di">
+  <form  ng-submit="blogCtrl.addPost()">
+    <label for="title">Title:</label>
+    <input type="text" ng-model="blogCtrl.newPost.title" name="title" required><br>
+
+    <label for="author">Author:</label>
+    <input type="text" ng-model="blogCtrl.newPost.author" name="author" required><br>
+
+    <label for="image">Image URL:</label>
+    <input type="file" ng-model="blogCtrl.newPost.image" accept="image/*" required><br>
+
+    <label for="content">Content:</label>
+    <textarea ng-model="blogCtrl.newPost.content" required></textarea><br>
+
+    <button type="submit">Add Post</button>
+  </form>
+    </div>
+
+  <div class="blog-posts">
+    <div class="post" ng-repeat="post in blogCtrl.posts">
+      <h3>{{ post.title }}</h3>
+      <p><strong>Author:</strong> {{ post.author }}</p>
+      <img ng-src="{{ post.image }}" alt="{{ post.title }}">
+      <p>{{ post.content }}</p>
+      <button ng-click="blogCtrl.likePost(post)">Like</button>
+      <p>Likes: {{ post.likes }}</p>
+      <form ng-submit="blogCtrl.addComment(post)">
+        <label for="comment">Add Comment:</label>
+        <input type="text" ng-model="blogCtrl.newComment" required>
+        <button type="submit">Comment</button>
+      </form>
+      <ul>
+        <li ng-repeat="comment in post.comments">{{ comment }}</li>
+      </ul>
+    </div>
+  </div>
+
+            </div>
+            
+</section>	
+      </div>
+  </body>
+</html>

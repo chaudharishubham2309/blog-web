@@ -1,0 +1,72 @@
+
+#blogForm {
+            width: 50%;
+            margin: 0 auto;
+        }
+#blogTitle {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+#blogContent {
+            font-size: 16px;
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+#authorName {
+            font-size: 16px;
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+#imageUpload {
+            margin-bottom: 10px;
+        }
+#fontColor {
+            margin-bottom: 10px;
+        }
+button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+button:hover {
+            background-color: #45a049;
+        }
+.blog {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+.blog h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+.blog h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+.blog p {
+            margin-bottom: 10px;
+        }
+.blog img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+.likeButton {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+    </style>
